@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, my love</title>
+<style>
+:root{--bg1:#fff1f3;--bg2:#ffd9e2;--ink:#4a1626;--soft:#8a4a5c;--card:rgba(255,255,255,.75);--accent:#d6336c;--accent2:#ff7a9c;--line:rgba(214,51,108,.25);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#2a0d1a;--bg2:#4a1230;--ink:#ffe9ef;--soft:#e8a9bb;--card:rgba(255,255,255,.08);--accent:#ff6b94;--accent2:#ff9db6;--line:rgba(255,107,148,.35)}}
+:root[data-theme="dark"]{--bg1:#2a0d1a;--bg2:#4a1230;--ink:#ffe9ef;--soft:#e8a9bb;--card:rgba(255,255,255,.08);--accent:#ff6b94;--accent2:#ff9db6;--line:rgba(255,107,148,.35)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:linear-gradient(160deg,var(--bg1),var(--bg2));color:var(--ink);font-family:Georgia,"Times New Roman",serif;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.h{position:absolute;bottom:-40px;opacity:0;animation:rise linear forwards}
+@keyframes rise{10%{opacity:.8}100%{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+main{position:relative;width:min(92vw,440px);max-height:92%;overflow-y:auto}
+.step{display:none;background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:28px;padding:34px 26px;text-align:center;box-shadow:0 20px 50px rgba(214,51,108,.18);animation:in .7s ease both}
+.step.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+h1{font-size:2rem;line-height:1.2;margin:.2em 0 .4em;font-weight:normal}
+h2{font-size:1.4rem;margin:.2em 0 .8em;font-weight:normal}
+p{color:var(--soft);font-size:1.1rem;line-height:1.6;margin:.6em 0;font-style:italic}
+.big{font-size:4rem;margin:0;animation:beat 1.4s ease-in-out infinite}
+@keyframes beat{50%{transform:scale(1.12)}}
+button,.chip{font:inherit;cursor:pointer}
+.btn{margin-top:18px;border:0;border-radius:999px;padding:14px 30px;font-size:1.05rem;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 8px 20px rgba(214,51,108,.35)}
+.btn:disabled{opacity:.4;box-shadow:none}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:6px 0}
+.chip{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:11px 18px;font-size:1rem}
+.chip.sel{background:var(--accent);color:#fff;border-color:var(--accent)}
+input[type=date]{font:inherit;font-size:1.1rem;padding:12px 16px;border-radius:16px;border:1px solid var(--line);background:var(--card);color:var(--ink);margin:8px 0 14px;color-scheme:light dark}
+.lines p{opacity:0;animation:in .8s ease forwards}
+.small{font-size:.9rem}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important}}
+</style></head>
+<body>
+<div id="hearts" aria-hidden="true"></div>
+<main>
+
+<section class="step on" id="s0">
+<p class="big">💌</p>
+<h1>I made something for you</h1>
+<p>It's your birthday, and you deserve more than a card from a shelf.</p>
+<button class="btn" data-next>Open it</button>
+</section>
+
+<section class="step" id="s1">
+<h1>Happy Birthday, my love 🎂</h1>
+<div class="lines">
+<p style="animation-delay:.3s">Today the world celebrates the day you arrived in it.</p>
+<p style="animation-delay:1.4s">I celebrate that and every day since, because you make ordinary moments feel like magic.</p>
+<p style="animation-delay:2.6s">Your laugh, your kindness, the way you make me feel at home. I'm grateful for all of it.</p>
+</div>
+<button class="btn" data-next>There's more 💕</button>
+</section>
+
+<section class="step" id="s2">
+<h2>A few questions, birthday girl</h2>
+<p>What would make your perfect evening?</p>
+<div class="chips" data-q="vibe">
+<button class="chip">🕯️ Candlelit dinner</button><button class="chip">🌅 Sunset walk</button><button class="chip">💃 Dancing</button><button class="chip">🛋️ Cozy night in</button>
+</div>
+<p>And what's the sweetest way to end it?</p>
+<div class="chips" data-q="treat">
+<button class="chip">🍰 Dessert</button><button class="chip">🍷 A glass of wine</button><button class="chip">☕ Hot chocolate</button><button class="chip">🍓 Surprise me</button>
+</div>
+<button class="btn" id="n2" data-next disabled>Next</button>
+</section>
+
+<section class="step" id="s3">
+<p class="big">🌹</p>
+<h2>One last question...</h2>
+<p>Will you go on a date with me? You pick the day.</p>
+<input type="date" id="date">
+<p class="small">What time feels right?</p>
+<div class="chips" data-q="time">
+<button class="chip">☀️ Afternoon</button><button class="chip">🌇 Golden hour</button><button class="chip">🌙 Evening</button>
+</div>
+<button class="btn" id="n3" disabled>Yes, it's a date 💖</button>
+</section>
+
+<section class="step" id="s4">
+<p class="big">💖</p>
+<h1>It's a date!</h1>
+<p id="sum"></p>
+<p>I can't wait. Now send me your answer so I can start planning.</p>
+<button class="btn" id="share">Send my answer</button>
+<p class="small" id="note"></p>
+</section>
+
+</main>
+<script>
+const $=s=>document.querySelector(s),ans={};
+function go(i){document.querySelectorAll('.step').forEach(e=>e.classList.remove('on'));$('#s'+i).classList.add('on');burst()}
+function burst(){const h=$('#hearts'),e=['💗','💕','🌸','💖','✨'];for(let i=0;i<14;i++){const d=document.createElement('span');d.className='h';d.textContent=e[i%e.length];d.style.left=Math.random()*100+'%';d.style.fontSize=14+Math.random()*22+'px';d.style.animationDuration=5+Math.random()*5+'s';d.style.animationDelay=Math.random()*1.5+'s';h.appendChild(d);setTimeout(()=>d.remove(),12000)}}
+document.querySelectorAll('[data-next]').forEach(b=>b.onclick=()=>go(+b.closest('.step').id.slice(1)+1));
+document.querySelectorAll('.chips').forEach(g=>g.onclick=e=>{const c=e.target.closest('.chip');if(!c)return;g.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel'));c.classList.add('sel');ans[g.dataset.q]=c.textContent;check()});
+const dt=$('#date');dt.min=new Date().toISOString().slice(0,10);dt.onchange=()=>{ans.date=dt.value;check()};
+function check(){$('#n2').disabled=!(ans.vibe&&ans.treat);$('#n3').disabled=!(ans.date&&ans.time)}
+$('#n3').onclick=()=>{const d=new Date(ans.date+'T12:00').toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'});ans.pretty=d;$('#sum').textContent=d+', '+ans.time.replace(/^\S+\s/,'').toLowerCase()+'. Plan: '+ans.vibe.replace(/^\S+\s/,'').toLowerCase()+', then '+ans.treat.replace(/^\S+\s/,'').toLowerCase()+'.';go(4);burst();setTimeout(burst,800)};
+$('#share').onclick=async()=>{const t='Yes! Let\'s go on that date 💖 '+$('#sum').textContent;try{if(navigator.share){await navigator.share({text:t});return}await navigator.clipboard.writeText(t);$('#note').textContent='Copied! Paste it in a message to me 💌'}catch(e){$('#note').textContent='Take a screenshot and send it to me 💌'}};
+</script>
+</body></html>
